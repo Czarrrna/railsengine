@@ -7,6 +7,10 @@ module Blorgh
 
     before_save :set_author
 
+    def summary
+      "#{title}"
+    end
+
     private
     def set_author
       self.author = User.find_or_create_by(name: author_name)
